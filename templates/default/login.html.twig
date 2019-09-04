@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Symfony  {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div id="root"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('login') }}
+
+{% endblock %}

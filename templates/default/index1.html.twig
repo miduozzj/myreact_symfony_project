@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Symfony  {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div id="root"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var getlist= "{{ path('getlist') }}";
+        var addlist= "{{ path('addlist') }}";
+        var dellist= "{{ path('dellist') }}";
+        var url = document.location;
+        console.log('yyy');
+        console.log(url.pathname);
+        var dir='/myreact-project/public/index.php/';
+        var keys=[];
+        switch(url.pathname){
+            case dir+'app': keys['key1']='1';break;
+            case dir+'app/analysis': keys['key1']='2'; keys['key2']='sub1';break;
+            case dir+'app/monitor': keys['key1']='3'; keys['key2']='sub1';break;
+            case dir+'app/workplace': keys['key1']='4'; keys['key2']='sub1';break;
+            case dir+'app/puzzlecards': keys['key1']='5';break;
+        }
+        {#console.log('qqqqqqqqqqqqqqqqqq');#}
+        {#console.log({{ app.request.pathinfo}});#}
+    </script>
+    {{ encore_entry_script_tags('app') }}
+
+{% endblock %}

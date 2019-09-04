@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} myreact-project  {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div id="root"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var logout= "{{ path('app_logout') }}";
+        var getlist= "{{ path('getlist') }}";
+        var addlist= "{{ path('addlist') }}";
+        var dellist= "{{ path('dellist') }}";
+        var download= "{{ path('download') }}";
+        {#var ROLE_USER={{ is_granted('ROLE_USER') }};#}
+        // {% if is_granted('ROLE_USER') %}
+        //     console.log('234');
+        // {% endif %}
+    </script>
+    {{ encore_entry_script_tags('app') }}
+
+{% endblock %}
